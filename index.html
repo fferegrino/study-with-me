@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+   </head>
+   <body>
+      <input id="url" type="text" />
+      <form id="form" method="get" action="study.html">
+         <label for="time">Start time:</label>
+         <input type="time" id="time" name="time">
+         <br />
+         <label for="cycles">Number of cycles:</label>
+         <input type="number" id="cycles" name="cycles">
+         <br />
+         <label for="work">Focus time:</label>
+         <input type="number" id="work" value="45" name="work">
+         <br />
+         <label for="rest">Rest time:</label>
+         <input type="number" id="rest" value="15" name="rest">
+         <br />
+         <input type="submit" value="Submit" />
+      </form>
+      <script>
+         $("form :input").change(function() {
+             var queryString = $("#form").serialize()
+             if (window.location.protocol == 'file:') {
+                var path = window.location.pathname.split("/").slice(0, -1).join('/')
+                $("#url").val(`file://${path}/study.html?${queryString}`)
+             } else {
+                var origin = window.location.origin
+                var path = window.location.pathname.split("/").slice(-2, -1)
+                $("#url").val(`${origin}/${path}/study.html?${queryString}`)
+             }
+         });
+      </script>
+   </body>
+</html>
+
