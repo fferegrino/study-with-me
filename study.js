@@ -2,19 +2,30 @@ let timeBox = $("#time")
 let debug = $("#debug")
 let myBar = $("#myBar")
 
-let thing = new Date();
+const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
+
 
 var MS_PER_MINUTE = 60000;
-let startTime = new Date(thing - 10 * MS_PER_MINUTE);
 
-let workMinutes = 1;
-let restMinutes = 0.5;
+let hour = parseInt(params.time.slice(0, 2))
+let minute = parseInt(params.time.slice(3))
+
+
+let startTime = new Date(
+    new Date().setHours(0,0,0,0) + ((hour * 3600) + (minute * 60)) * 1000 
+);
+
+console.log(startTime)
+
+let workMinutes = parseInt(params.work ?? 45);
+let restMinutes = parseInt(params.rest ?? 15);
 
 let _restSeconds = restMinutes * 60;
 let _workSeconds = workMinutes * 60;
 let fullCycle = (_restSeconds + _workSeconds)
 
-let cycles = 4;
 
 function convertHMS(value) {
   const sec = parseInt(value, 10); // convert value to number if it's string
@@ -51,12 +62,12 @@ function increaseTime() {
   var stage = ""
   if (remainder >= _workSeconds) {
   	// We must be on a break
-    width = (100 / restMinutes) * (remainder - _workSeconds) / 60
+    width = (100 / restMinutes) * ((remainder - _workSeconds) / 60)
     stage = "Break"
   }
   else 
   {
-  	width = (100 / workMinutes) * remainder / 60
+  	width = (100 / workMinutes) * (remainder / 60)
     stage = "Focus"
   }
 	debug.text(quotient + " cycles")
@@ -67,6 +78,5 @@ function increaseTime() {
   
   timeBox.text(`${hms} – ${stage} time – ${quotient} cycles`);
 }
-
 
 var id = setInterval(increaseTime, 1000);
