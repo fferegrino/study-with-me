@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
  :root {
-     --backgroundColor: burlywood;
+     --backgroundColor: transparent;
      --mainColor: white;
 }
 body {
-     background-color: burlywood;
+     /* background-color: burlywood; */
 }
  .container{
      /* Center content horizontally and vertically */
@@ -48,7 +48,7 @@ body {
      border-radius: 5px;
      padding: 5px 10px 15px 10px;
      font-size: large;
-     background-color: beige;
+     /* background-color: beige; */
      border: 1px solid black;
      cursor: pointer;
 
