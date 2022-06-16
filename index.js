@@ -1,4 +1,5 @@
 let timeBox = $("#time")
+let text = $("#text")
 let debug = $("#debug")
 let myBar = $("#myBar")
 let bigProgress = $("#bigProgress")
@@ -18,8 +19,6 @@ let startTime = new Date(
     new Date().setHours(0, 0, 0, 0) + ((hour * 3600) + (minute * 60)) * 1000
 );
 
-console.log(startTime)
-
 let workMinutes = parseInt(params.work ?? 45);
 let restMinutes = parseInt(params.rest ?? 15);
 let cycles = parseInt(params.cycles ?? -1);
@@ -27,8 +26,6 @@ let cycles = parseInt(params.cycles ?? -1);
 let _restSeconds = restMinutes * 60;
 let _workSeconds = workMinutes * 60;
 let fullCycle = (_restSeconds + _workSeconds)
-
-console.log(fullCycle)
 
 
 function convertHMS(value) {
@@ -101,23 +98,26 @@ function increaseTime() {
     // Calculate on what part of the cycle we are
     var width = 0;
     var displayText = ""
+    console.log(`${remainder} ${_workSeconds}`)
     if (remainder >= _workSeconds) {
         // We must be on a break
         width = (100 / restMinutes) * ((remainder - _workSeconds) / 60)
-        displayText = "remaining for break time"
-        remainder = _workSeconds - remainder;
+        displayText = "break time"
+        remainder = _restSeconds - (remainder - _workSeconds);
     } else {
         width = (100 / workMinutes) * (remainder / 60)
-        displayText = "to go before the break"
+        displayText = "focus time"
         remainder = _workSeconds - remainder;
     }
     debug.text(quotient + " cycles")
 
     myBar.css("width", width + "%");
 
+    console.log(remainder)
     let hms = convertHMS(remainder)
 
-    timeBox.text(`${hms} ${displayText}`);
+    timeBox.text(hms);
+    text.text(displayText)
 }
 
 var id = setInterval(increaseTime, 1000);
