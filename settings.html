@@ -4,7 +4,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-      <link rel="stylesheet" href="study.css">
+      <link rel="stylesheet" href="./index.css">
    </head>
    <body>
       <div class="container">
@@ -31,11 +31,11 @@
              var queryString = $("#form").serialize()
              if (window.location.protocol == 'file:') {
                 var path = window.location.pathname.split("/").slice(0, -1).join('/')
-                $("#url").val(`file://${path}/study.html?${queryString}`)
+                $("#url").val(`file://${path}/index.html?${queryString}`)
              } else {
                 var origin = window.location.origin
                 var path = window.location.pathname.split("/").slice(-2, -1)
-                $("#url").val(`${origin}/${path}/study.html?${queryString}`)
+                $("#url").val(`${origin}/${path}?${queryString}`)
              }
          });
       </script>
