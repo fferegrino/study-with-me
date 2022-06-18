@@ -9,6 +9,35 @@
     width: 100vw;
 }
 
+button.button {
+    cursor: pointer;
+    border: white 3px solid;
+    color: white;
+    padding: 3px 10px;
+    background-color: transparent;
+    text-transform: lowercase;
+    font-family: 'Comfortaa', cursive;
+    border-radius: 2em/100%;
+}
+
+button.button:hover {
+    cursor: pointer;
+    border: white 3px solid;
+    background-color: #ffffff99;
+}
+
+button.landing {
+    padding: 8px 30px;
+    margin: 0px 15px;
+    font-size: 1.5em;
+    border-radius: 2em/100%;
+}
+
+button.primary {
+    color: black;
+    background-color: white;
+}
+
 #clock {
     font-family: 'Ubuntu Mono', monospace;
     font-size: 12em;
@@ -26,7 +55,8 @@
     border: #fff 4px solid;
     border-radius: 2rem/100%;
     overflow: hidden;
-    width: 30rem;
+    width: 30rem;    
+    margin-bottom: 2em;
 
     visibility: hidden;
     display: none;

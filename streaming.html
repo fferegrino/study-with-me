@@ -30,9 +30,11 @@
 <script src="app.js"></script>
 <script>
     // If the user has provided a start time already
-    if (urlParams.get('hour') != null || urlParams.get('minute') != null) {
-        let hour = parseInt(urlParams.get('hour'))
-        let minute = parseInt(urlParams.get('minute'))
+    if (urlParams.get('time') != null) {
+        const time = urlParams.get('time')
+        let hour = parseInt(time.slice(0, 2))
+        let minute = parseInt(time.slice(3))
+
         let currentTime = new Date();
         startTime = new Date(new Date().setHours(0, 0, 0, 0) + ((hour * 3600) + (minute * 60)) * 1000);
         elapsedSeconds = Math.trunc((currentTime.getTime() - startTime.getTime()) / 1000)
