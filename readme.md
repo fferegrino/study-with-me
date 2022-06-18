@@ -15,3 +15,8 @@ The app should work in two modes: on-stream and standalone.
  - **Standalone** is meant to be used as a traditional web app, in a browser.
 
 Please [check the issues](https://github.com/fferegrino/study-with-me/issues) for things to do or to add your own ideas, but **please reach out to me** before writing actual code.
+
+
+Photo by <a href="https://unsplash.com/es/@jezar?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jezael Melgoza</a> on <a href="https://unsplash.com/s/photos/lo-fi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
+  

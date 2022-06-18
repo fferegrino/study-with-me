@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Ubuntu+Mono:wght@700&display=swap');
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+#clock {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 12em;
+    margin-top: -1.5rem;
+    color: white;
+}
+
+#info {
+    font-family: 'Comfortaa', cursive;
+    font-size: 4em;
+    color: white;
+}
+
+#barContainer {
+    border: #fff 4px solid;
+    border-radius: 2rem/100%;
+    overflow: hidden;
+    width: 30rem;
+
+    visibility: hidden;
+    display: none;
+}
+
+#mainProgressBar {
+    width: 0%;
+    height: 30px;
+    background-color: white;
+    overflow: hidden;
+    white-space: nowrap;
+}

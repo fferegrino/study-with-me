@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study with me</title>
+    <link href="app.css" rel="stylesheet">
+    <style>
+
+        #clock {
+            text-shadow: #CCC 1px 0 10px;
+        }
+
+        #info {
+            text-shadow: #CCC 1px 0 10px;
+        }
+
+        #barContainer {
+            box-shadow: #CCC 1px 0 10px;
+        }
+    </style>
+    <script src="utils.js"></script>
+</head>
+<body>
+<div class="container">
+    <div id="info">Loading...</div>
+    <div id="clock">00:00</div>
+    <div id="barContainer">
+        <div id="mainProgressBar"></div>
+    </div>
+</div>
+<script src="app.js"></script>
+<script>
+    // If the user has provided a start time already
+    if (urlParams.get('hour') != null || urlParams.get('minute') != null) {
+        let hour = parseInt(urlParams.get('hour'))
+        let minute = parseInt(urlParams.get('minute'))
+        let currentTime = new Date();
+        startTime = new Date(new Date().setHours(0, 0, 0, 0) + ((hour * 3600) + (minute * 60)) * 1000);
+        elapsedSeconds = Math.trunc((currentTime.getTime() - startTime.getTime()) / 1000)
+        console.log(hour, minute)
+        interval = setInterval(tick, 1000);
+    }
+</script>
+</body>
+</html>
