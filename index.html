@@ -1,200 +1,193 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Study with me</title>
-    <link href="app.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.1.0/pure-min.css" 
-        integrity="sha512-Q4WiqBxm6xN8av2KEK01keP+vRk6AlyS5yqbB87RtKOSC/B6kQM7dwMtBY45m6eH/gCxWjfvbIf7hSK3pEFlow==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        html {
-            background: url(https://ik.imagekit.io/thatcsharpguy/stdywith_me/jonathan-formento-Agukhm5v0lA-unsplash.jpg) no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-            color: white;
-            height: 100%;
-        }
+    <head>
+        <title>Study with me</title>
+        <link href="app.css" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.1.0/pure-min.css"
+            integrity="sha512-Q4WiqBxm6xN8av2KEK01keP+vRk6AlyS5yqbB87RtKOSC/B6kQM7dwMtBY45m6eH/gCxWjfvbIf7hSK3pEFlow=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <style>
+            html {
+                background: url(https://ik.imagekit.io/thatcsharpguy/stdywith_me/jonathan-formento-Agukhm5v0lA-unsplash.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                color: white;
+                height: 100%;
+            }
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0, 0, 0); /* Fallback color */
+                background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+            }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: black;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 40px;
-  border-radius: 2em;
-  width: 40%; /* Could be more or less, depending on screen size */
-}
+            /* Modal Content/Box */
+            .modal-content {
+                background-color: black;
+                margin: 15% auto; /* 15% from the top and centered */
+                padding: 40px;
+                border-radius: 2em;
+                width: 40%; /* Could be more or less, depending on screen size */
+            }
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+            /* The Close Button */
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
 
-.close:hover,
-.close:focus {
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-    </style>
-    <script src="utils.js"></script>
-</head>
-<body>
-<div class="container">
-    <div id="info">Loading...</div>
-    <div id="clock">00:00</div>
-    <div id="barContainer">
-        <div id="mainProgressBar"></div>
-    </div>
-    <div id="controls">
-        <button type="button" class="button landing primary" id="startButton">Start</button>
-        <button type="button" class="button landing" id="restartButton">Restart</button>
-        <button type="button" class="button landing" id="myBtn">Settings</button>
-    </div>
-</div>
-
-<!-- The Modal -->
-<div id="settingsModal" class="modal">
-
-
-
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span id="closeModal" class="close">&times;</span>
-
-        <div style="visibility: hidden; display: none;">
-            <label for="copy">Query</label>
-            <input type="text" id="copy" name="copy" />
+            .close:hover,
+            .close:focus {
+                color: white;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+        <script src="utils.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div id="info">Loading...</div>
+            <div id="clock">00:00</div>
+            <div id="barContainer">
+                <div id="mainProgressBar"></div>
+            </div>
+            <div id="controls">
+                <button type="button" class="button landing primary" id="startButton">Start</button>
+                <button type="button" class="button landing" id="restartButton">Restart</button>
+                <button type="button" class="button landing" id="settingsButton">Settings</button>
+            </div>
         </div>
-        <form id="form" class="pure-form pure-form-aligned">
-            <fieldset>
-                <div class="pure-control-group">
-                    <label for="time">Time</label>
-                    <input type="time" id="time" name="time" />
+
+        <!-- The Modal -->
+        <div id="settingsModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+
+                <div style="visibility: hidden; display: none;">
+                    <label for="copy">Query</label>
+                    <input type="text" id="copy" name="copy" />
                 </div>
-                <div class="pure-control-group">
-                    <label for="work">Focus time</label>
-                    <input type="number" id="work" name="work" />
-                </div>
-                <div class="pure-control-group">
-                    <label for="rest">Rest time</label>
-                    <input type="number" id="rest" name="rest" />
-                </div>
-                <div class="pure-control-group">
-    
-                    <label for="progress"></label>
-    
-                    <label for="aligned-cb" class="pure-checkbox">
-                        <input type="checkbox" id="progress" name="progress" /> Show progress bar
-                    </label>
-                </div>
-                <div class="pure-controls">
-                    <button class="button primary" type="submit">set</button>
-                    <button class="button" id="streamerButton" type="button">stream</button>
-                </div>
-            </fieldset>
-        </form>
-    </div>
-</div>
+                <form id="form" class="pure-form pure-form-aligned">
+                    <fieldset>
+                        <div class="pure-control-group">
+                            <label for="time">Time</label>
+                            <input type="time" id="time" name="time" />
+                        </div>
+                        <div class="pure-control-group">
+                            <label for="work">Focus time</label>
+                            <input type="number" id="work" name="work" />
+                        </div>
+                        <div class="pure-control-group">
+                            <label for="rest">Rest time</label>
+                            <input type="number" id="rest" name="rest" />
+                        </div>
+                        <div class="pure-control-group">
+                            <label for="progress"></label>
 
-<script src="app.js"></script>
-<script>
-    let startButton = document.getElementById("startButton")
-    let restartButton = document.getElementById("restartButton")
-    const streamerButton= document.getElementById('streamerButton')
-    let form = document.getElementById("form")
-    let copy = document.getElementById("copy")
+                            <label for="aligned-cb" class="pure-checkbox"> <input type="checkbox" id="progress" name="progress" /> Show progress bar </label>
+                        </div>
+                        <div class="pure-controls">
+                            <button class="button primary" type="submit">set</button>
+                            <button class="button" id="streamerButton" type="button">stream</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
 
-    startButton.addEventListener('click', function () {
-        console.log(interval)
-        startTime = new Date();
-        interval = setInterval(tick, 1000);
-    }, false)
-    restartButton.addEventListener('click', function () {
-        clearTimeout(interval)
-        elapsedSeconds = 0
-        interval = setInterval(tick, 1000);
-    }, false)
+        <script src="app.js"></script>
+        <script>
+            const startButton = document.getElementById("startButton");
+            const restartButton = document.getElementById("restartButton");
+            const streamerButton = document.getElementById("streamerButton");
+            const settingsButton = document.getElementById("settingsButton");
+            const form = document.getElementById("form");
+            const copy = document.getElementById("copy");
 
-form.addEventListener('change',function(){
-    const queryString = new URLSearchParams(Array.from(new FormData(form))).toString()
-    console.log(queryString)
+            startButton.addEventListener(
+                "click",
+                function () {
+                    console.log(interval);
+                    startTime = new Date();
+                    interval = setInterval(tick, 1000);
+                },
+                false
+            );
+            restartButton.addEventListener(
+                "click",
+                function () {
+                    clearTimeout(interval);
+                    elapsedSeconds = 0;
+                    interval = setInterval(tick, 1000);
+                },
+                false
+            );
+            streamerButton.addEventListener(
+                "click",
+                function () {
+                    const queryString = new URLSearchParams(Array.from(new FormData(form))).toString();
+                    const origin = window.location.origin;
+                    var path = window.location.pathname.split("/").slice(-2, -1);
+                    copy.value = `${window.location.origin}/streaming?${queryString}`;
+                    navigator.clipboard.writeText(copy.value);
+                },
+                false
+            );
 
-    console.log(window.location.protocol)
-    if (window.location.protocol == 'file:') {
-        var path = window.location.pathname.split("/").slice(0, -1).join('/')
-        copy.value = `file://${path}/index.html?${queryString}`
-    } else {
-        var origin = window.location.origin
-        var path = window.location.pathname.split("/").slice(-2, -1)
-        copy.value = `${origin}/${path}?${queryString}`
-    }
+            settingsButton.addEventListener(
+                "click",
+                function () {
+                    modal.style.display = "block";
+                },
+                false
+            );
 
-    copy.select();
-    copy.setSelectionRange(0, 99999); 
-    console.log(copy.value)
-    navigator.clipboard.writeText(copy.value);
-});
+            // Fill the modal
+            document.getElementById("work").value = workMinutes;
+            document.getElementById("rest").value = restMinutes;
+            document.getElementById("progress").checked = showProgress;
 
-streamerButton.addEventListener('click', function () {
-    const queryString = new URLSearchParams(Array.from(new FormData(form))).toString()
-    const origin = window.location.origin
-    var path = window.location.pathname.split("/").slice(-2, -1)
-    copy.value = `${window.location.origin}/streaming?${queryString}`
-    navigator.clipboard.writeText(copy.value);
+            // Get the modal
+            const modal = document.getElementById("settingsModal");
+            const span = document.getElementById("closeModal");
 
-}, false)
+            span.addEventListener(
+                "click",
+                function () {
+                    // When the user clicks on <span> (x), close the modal
+                    modal.style.display = "none";
+                },
+                false
+            );
 
-// Fill the modal
-document.getElementById('work').value = workMinutes;
-document.getElementById('rest').value = restMinutes;
-document.getElementById('progress').checked = showProgress;
-
-// Get the modal
-var modal = document.getElementById("settingsModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementById("closeModal");
-
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-// modal.style.display = "block";
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
-</body>
+            window.addEventListener(
+                "click",
+                function () {
+                    // When the user clicks anywhere outside of the modal, close it
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                },
+                false
+            );
+        </script>
+    </body>
 </html>
