@@ -131,7 +131,7 @@
             startButton.addEventListener(
                 "click",
                 function () {
-                    console.log(interval);
+                    clearTimeout(interval);
                     startTime = new Date();
                     interval = setInterval(tick, 1000);
                 },
