@@ -6,6 +6,7 @@ const defaultRestMinutes = 5
 const workMinutes = parseInt(urlParams.get('work') ?? defaultWorkMinutes)
 const restMinutes = parseInt(urlParams.get('rest') ?? defaultRestMinutes)
 const showProgress = urlParams.get("progress") != null
+const notification = urlParams.get("notification") != null
 
 // Get UI elements
 let clock = document.getElementById("clock")
